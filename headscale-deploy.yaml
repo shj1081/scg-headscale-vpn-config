@@ -12,10 +12,13 @@ spec:
             labels:
                 app: headscale
         spec:
+            securityContext:
+                fsGroup: 1000
+                runAsUser: 1000
             containers:
                 - name: headscale
                   image: headscale/headscale:latest
-                  args: ["headscale", "serve"]
+                  args: ["serve", "-c", "/etc/headscale/config.yaml"]
                   ports:
                       - containerPort: 8080
                   volumeMounts:
