@@ -18,13 +18,25 @@ spec:
                   env:
                       - name: TS_SERVER
                         value: "https://vpn.k8s.scg.skku.ac.kr"
-                      - name: TS_EXTRA_ARGS
-                        value: "--advertise-routes=115.145.150.0/24,115.145.172.0/24"
                       - name: TS_AUTHKEY
                         valueFrom:
                             secretKeyRef:
                                 name: vpn-secret
                                 key: TS_AUTHKEY
+                      - name: TS_EXTRA_ARGS
+                        value: "--advertise-routes=115.145.150.0/24,115.145.172.0/24"
+
+                      - name: TS_KUBE_SECRET
+                        value: ""
+
+                      - name: TS_STATE_DIR
+                        value: "/var/lib/tailscale"
                   securityContext:
                       capabilities:
                           add: ["NET_ADMIN"]
+                  volumeMounts:
+                      - name: tailscale-state
+                        mountPath: /var/lib/tailscale
+            volumes:
+                - name: tailscale-state
+                  emptyDir: {}
