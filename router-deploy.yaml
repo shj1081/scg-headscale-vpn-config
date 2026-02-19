@@ -16,7 +16,7 @@ spec:
                 - name: tailscale
                   image: tailscale/tailscale:latest
                   env:
-                      - name: TS_SERVER
+                      - name: TS_LOGIN_SERVER
                         value: "https://vpn.k8s.scg.skku.ac.kr"
                       - name: TS_AUTHKEY
                         valueFrom:
@@ -24,7 +24,7 @@ spec:
                                 name: vpn-secret
                                 key: TS_AUTHKEY
                       - name: TS_EXTRA_ARGS
-                        value: "--advertise-routes=115.145.150.0/24,115.145.172.0/24"
+                        value: "--login-server=https://vpn.k8s.scg.skku.ac.kr --advertise-routes=115.145.150.0/24,115.145.172.0/24"
 
                       - name: TS_KUBE_SECRET
                         value: ""
