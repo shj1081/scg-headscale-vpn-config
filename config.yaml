@@ -10,7 +10,7 @@ prefixes:
     allocation: sequential
 
 database:
-    type: sqlite
+    type: sqlite3
     sqlite:
         path: /var/lib/headscale/db.sqlite
         write_ahead_log: true
@@ -29,6 +29,7 @@ derp:
         region_id: 999
         region_code: "scg-internal"
         region_name: "SCG Internal Access VPN"
+        private_key_path: /var/lib/headscale/derp_server_private.key
         stun_listen_addr: "0.0.0.0:3478"
         automatically_add_embedded_derp_region: true
     paths: []
