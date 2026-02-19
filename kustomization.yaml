@@ -10,6 +10,7 @@ resources:
     - ingress.yaml
     - router-deploy.yaml
     - secret.yaml
+    - namespace.yaml
 
 configMapGenerator:
     - name: headscale-config
