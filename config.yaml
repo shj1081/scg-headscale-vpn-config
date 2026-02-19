@@ -1,7 +1,20 @@
-server_url: https://vpn.k8s.scg.skku.ac.kr
+server_url: https://vpn.scg.skku.ac.kr
 listen_addr: 0.0.0.0:8080
 db_type: sqlite3
 db_path: /var/lib/headscale/db.sqlite
+
+noise:
+    private_key_path: /var/lib/headscale/noise_private.key
+
+dns:
+    magic_dns: true
+    base_domain: scg.internal
+    nameservers:
+        global:
+            - 1.1.1.1
+            - 8.8.8.8
+    override_local_dns: true
+
 derp:
     server:
         enabled: true
@@ -9,7 +22,3 @@ derp:
         region_code: "scg-internal"
         region_name: "SCG Internal Access VPN"
         listen_addr: 0.0.0.0:8080
-dns_config:
-    magic_dns: true
-    nameservers:
-        - 1.1.1.1
