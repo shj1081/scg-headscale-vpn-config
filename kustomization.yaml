@@ -5,7 +5,7 @@ resources:
     - headscale-pvc.yaml
     - headscale-deploy.yaml
     - headscale-svc.yaml
-    - headscale-ingress.yaml
+    - ingress.yaml
     - router-deploy.yaml
     - secret.yaml
 
