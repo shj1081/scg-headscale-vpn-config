@@ -1,6 +1,8 @@
 server_url: https://vpn.k8s.scg.skku.ac.kr
 listen_addr: 0.0.0.0:8080
 
+unix_socket: /var/lib/headscale/headscale.sock
+
 noise:
     private_key_path: /var/lib/headscale/noise_private.key
 

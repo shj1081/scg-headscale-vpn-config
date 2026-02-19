@@ -19,6 +19,9 @@ spec:
                 - name: headscale
                   image: headscale/headscale:latest
                   args: ["serve", "-c", "/etc/headscale/config.yaml"]
+                  env:
+                      - name: HEADSCALE_UNIX_SOCKET
+                        value: /var/lib/headscale/headscale.sock
                   ports:
                       - containerPort: 8080
                   volumeMounts:
