@@ -1,4 +1,4 @@
-server_url: https://vpn.scg.skku.ac.kr
+server_url: https://vpn.k8s.scg.skku.ac.kr
 listen_addr: 0.0.0.0:8080
 db_type: sqlite3
 db_path: /var/lib/headscale/db.sqlite
